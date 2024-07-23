@@ -12,10 +12,10 @@ HEADERS = {'Content-Type': 'application/json'}
 OPENSKY_URL = 'https://opensky-network.org/api/states/all'
 IPSTACK_URL = 'http://api.ipstack.com/check'
 
-PM_MILES = 50                          # flight search radius for the table
+PM_MILES = 30                          # flight search radius for the table (Default = 50)
 UPDATE_INTERVAL = 5000                 # update webpage this many milliseconds
 DEFAULT_LOCATION = [51.505, -0.09]     # London
-OVERHEAD_RADIUS = 10                    # alert when plane is within this distance
+OVERHEAD_RADIUS = 10                    # alert when plane is within this distance (Default = 4)
 EARTH_RADIUS = 6371e3                  # radius of earth, in metres
 
 #All OpenSky column names
