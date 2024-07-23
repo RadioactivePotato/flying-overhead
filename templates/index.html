@@ -79,13 +79,20 @@ All planes within {{ pm_miles | safe }} miles. Last queried
         const pm_miles = {{ overhead_radius }};
         const interval = {{ update_interval }};
 
+        /*
         var pos = {}, mymap = L.map('map').setView({{ default_location }}, 11);
         L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
             attribution: 'Map data &copy; <a href="https://www.google.com/">Google</a>',
             maxZoom: 21,
             subdomains: ["mt0", "mt1", "mt2", "mt3"],
         }).addTo(mymap);
+        */
 
+        var pos = {}, mymap = L.map('map').setView({{ default_location }}, 11);
+        L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors',
+            maxZoom: 18,
+        }).addTo(mymap);
 
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
