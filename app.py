@@ -15,7 +15,7 @@ IPSTACK_URL = 'http://api.ipstack.com/check'
 PM_MILES = 50                          # flight search radius for the table
 UPDATE_INTERVAL = 5000                 # update webpage this many milliseconds
 DEFAULT_LOCATION = [51.505, -0.09]     # London
-OVERHEAD_RADIUS = 4                    # alert when plane is within this distance
+OVERHEAD_RADIUS = 10                    # alert when plane is within this distance
 EARTH_RADIUS = 6371e3                  # radius of earth, in metres
 
 #All OpenSky column names
