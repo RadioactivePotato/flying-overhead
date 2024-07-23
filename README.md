@@ -6,9 +6,15 @@ A simple demo web app designed to tell you what flights are directly overhead.
 
 Copy `private_keys_template.py` to `private_keys.py` and fill in with your own details.
 
+`pip install -r requirements.txt` to download the required packages
+
 ### To run
 
 `FLASK_ENV=app flask run`
+
+or
+
+`python -m flask run`
 
 Will run the app on localhost:5000.
 
