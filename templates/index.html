@@ -79,6 +79,7 @@ All planes within {{ pm_miles | safe }} miles. Last queried
         const pm_miles = {{ overhead_radius }};
         const interval = {{ update_interval }};
 
+        //Google Maps Hybrid tiles
         /*
         var pos = {}, mymap = L.map('map').setView({{ default_location }}, 11);
         L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
@@ -88,9 +89,10 @@ All planes within {{ pm_miles | safe }} miles. Last queried
         }).addTo(mymap);
         */
 
+        //OpenStreetMap tiles
         var pos = {}, mymap = L.map('map').setView({{ default_location }}, 11);
         L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors',
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contribuitors</a> ♥',
             maxZoom: 18,
         }).addTo(mymap);
 
