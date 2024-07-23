@@ -81,7 +81,7 @@ All planes within {{ pm_miles | safe }} miles. Last queried
 
         var pos = {}, mymap = L.map('map').setView({{ default_location }}, 11);
         L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://maps.google.com/">.Google Maps</a>',
+            attribution: 'Map data &copy; <a href="https://www.google.com/">Google</a>',
             maxZoom: 21,
             subdomains: ["mt0", "mt1", "mt2", "mt3"],
         }).addTo(mymap);
