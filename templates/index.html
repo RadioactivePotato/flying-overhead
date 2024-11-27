@@ -79,16 +79,31 @@ All planes within {{ pm_miles | safe }} miles. Last queried
         const pm_miles = {{ overhead_radius }};
         const interval = {{ update_interval }};
 
-        var pos = {}, mymap = L.map('map').setView({{ default_location }}, 11);
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            maxZoom: 18,
-            id: 'mapbox/streets-v11',
-            tileSize: 512,
-            zoomOffset: -1,
-            accessToken: '{{ mapbox_key | safe }}'
-        }).addTo(mymap);
+        // initialize the map
+        var mymap = L.map('map').setView([51.505, -0.09], 11); // Use your default location
 
+        // define base layers
+        var googleLayer = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            attribution: 'Map data &copy; <a href="https://www.google.com/">Google</a>',
+            maxZoom: 21,
+            subdomains: ["mt0", "mt1", "mt2", "mt3"]
+        });
+
+        var osmLayer = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> ♥',
+            maxZoom: 18
+        });
+
+        // default layer (OpenStreetMap)
+        osmLayer.addTo(mymap);
+
+        // layer controller
+        var baseLayers = {
+            "Google Maps": googleLayer,
+            "OpenStreetMap": osmLayer
+        };
+
+        L.control.layers(baseLayers).addTo(mymap);
 
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
